@@ -24,6 +24,10 @@ export default class TodoDataService extends Service {
         });
     }
 
+    get completed() {
+        return this.todos.filter((todo) => todo.isCompleted);
+    }
+
     get todoCountIsOne() {
         return this.incomplete.length === 1;
     }

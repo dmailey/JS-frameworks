@@ -3,14 +3,7 @@
     <label for="mark-all-complete">Mark all as complete</label>
 
     <ul class="todo-list">
-        <!--
-        - this — the rendering context / component instance.
-        - todos — a property on this, which we defined in the todo-list.js component using
-          @service('todo-data') todos;. This is a reference to the todo-data service, allowing us to interact with
-          the service instance directly.
-        - all — a getter on the todo-data service that returns all the todos.
-        -->
-        {{#each this.todos.all as |todo|}}
+        {{#each @todos as |todo|}}
         <Todo @todo={{todo}} />
         {{/each}}
     </ul>
