@@ -1,10 +1,16 @@
-<li>
+<li class="{{ if @todo.isCompleted 'completed' }}">
     <div class="view">
     <input
-        aria-label="Toggle the completion of this todo"
         class="toggle"
         type="checkbox"
+        aria-label="Toggle the completion of this todo"
+        checked={{ @todo.isCompleted }}
+        {{ on 'change' (fn this.todos.toggleCompletion @todo) }}
     >
+    <!--
+    fn allows for partial application, which is similar to bind, but it never changes the invocation context;
+    this is equivalent to using bind with a null first argument.
+    -->
     <label>{{@todo.text}}</label>
     <button
         type="button"
